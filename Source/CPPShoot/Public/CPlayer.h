@@ -28,5 +28,18 @@ public:
 
 public:
 	UPROPERTY(VisibleAnywhere, Category=MyComponent, meta=(AllowPrivateAccess=true))
-	UBoxComponent* boxComp;
+	class UBoxComponent* boxComp;
+	UPROPERTY(VisibleAnywhere, Category=MyComponent, meta=(AllowPrivateAccess=true))
+	class UStaticMeshComponent* bodyMesh;
+
+	// 이동방향
+	FVector direction;
+	// 이동속도
+	UPROPERTY(EditAnywhere, Category=MySettings)
+	float speed = 500;
+public:
+	// 좌우 입력처리 함수
+	void Horizontal(float value);
+	// 상하 입력처리 함수
+	void Vertical(float value);
 };
